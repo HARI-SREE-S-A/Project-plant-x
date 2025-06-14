@@ -1,0 +1,116 @@
+
+
+```
+                               MICRO FARM AUTOMATION SYSTEM
+                                    Circuit Diagram
+                                         
+┌─────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                                                                             │
+│  DHT11-A        ┌─────────────────┐         4-CH RELAY-A    ┌─ CH1: Cooling Fan A         │
+│  ┌─────────┐    │                 │         ┌──────────┐    ├─ CH2: Dehumidifier A        │
+│  │Temp/Hum │────│ D2         D4 ──┼─────────│ IN1  OUT1│────┼─ CH3: Water Pump A          │
+│  │Comp. A  │    │            D5 ──┼─────────│ IN2  OUT2│────┼─ CH4: Grow Lights A         │
+│  └─────────┘    │            D6 ──┼─────────│ IN3  OUT3│────┘                              │
+│                 │            D7 ──┼─────────│ IN4  OUT4│                                   │
+│  DHT11-B        │                 │         └──────────┘                                   │
+│  ┌─────────┐    │   ARDUINO MINI  │                                                        │
+│  │Temp/Hum │────│ D3         D8 ──┼─────────┐                                              │
+│  │Comp. B  │    │            D9 ──┼─────────┤ 4-CH RELAY-B   ┌─ CH1: Cooling Fan B        │
+│  └─────────┘    │           D10 ──┼─────────┤ ┌──────────┐   ├─ CH2: Dehumidifier B       │
+│                 │           D11 ──┼─────────┼─│ IN1  OUT1│───┼─ CH3: Water Pump B         │
+│                 │                 │         │ │ IN2  OUT2│───┼─ CH4: Grow Lights B        │
+│  ┌─────────┐    │ VCC        GND  │         │ │ IN3  OUT3│───┘                             │
+│  │12V Power│────│  │          │   │         └─│ IN4  OUT4│                                 │
+│  │Supply   │    │  │          │   │           └──────────┘                                 │
+│  │5V Reg.  │────│  │          │   │                                                        │
+│  └─────────┘    └──┼──────────┼───┘                                                        │
+│       │             │          │                                                            │
+│       └─────────────┘          └────────────────────────────────────────────────────────── │
+│                                                                                             │
+└─────────────────────────────────────────────────────────────────────────────────────────────┘
+
+PIN MAPPING:
+┌─────────────────────────────────────┐
+│ D2  → DHT11 A (Data)                │
+│ D3  → DHT11 B (Data)                │
+│ D4  → Relay A1 (Cooling Fan A)      │
+│ D5  → Relay A2 (Dehumidifier A)     │
+│ D6  → Relay A3 (Water Pump A)       │
+│ D7  → Relay A4 (Grow Lights A)      │
+│ D8  → Relay B1 (Cooling Fan B)      │
+│ D9  → Relay B2 (Dehumidifier B)     │
+│ D10 → Relay B3 (Water Pump B)       │
+│ D11 → Relay B4 (Grow Lights B)      │
+│ VCC → 5V Power                      │
+│ GND → Ground                        │
+└─────────────────────────────────────┘
+
+POWER REQUIREMENTS:
+┌─────────────────────────────────────┐
+│ Arduino Mini: 5V, 500mA             │
+│ DHT11 Sensors: 3.3-5V, 2.5mA each  │
+│ Relay Modules: 5V, 70mA each        │
+│ Total System: 12V, 2A               │
+│ Loads (Fans/Pumps/Lights):          │
+│   AC 220V or DC 12V                 │
+│   Max 10A per relay channel         │
+└─────────────────────────────────────┘
+
+WIRING NOTES:
+• Red lines = 5V Power (VCC)
+• Black lines = Ground (GND)  
+• Blue lines = Data/Control signals
+• Use separate power supplies for Arduino (5V) and relay loads (12V/220V AC)
+• DHT11 sensors can be powered from Arduino VCC
+• Relay modules are optically isolated
+• Add fuses and circuit breakers for safety on AC loads
+• Use appropriate wire gauge for high-current loads
+
+COMPONENTS LIST:
+┌─────────────────────────────────────┐
+│ 1x Arduino Mini (or Nano/Uno)       │
+│ 2x DHT11 Temperature/Humidity Sensor│
+│ 2x 4-Channel Relay Module (5V)      │
+│ 1x 12V Power Supply with 5V Reg.    │
+│ 8x Load devices (fans, pumps, etc.) │
+│ Jumper wires and breadboard         │
+│ Fuses and safety components         │
+└─────────────────────────────────────┘
+
+COMPARTMENT A CONTROLS:
+├─ Temperature & Humidity Monitoring (DHT11-A)
+├─ Cooling Fan (Relay A1)
+├─ Dehumidifier (Relay A2) 
+├─ Water Pump (Relay A3)
+└─ Grow Lights (Relay A4)
+
+COMPARTMENT B CONTROLS:
+├─ Temperature & Humidity Monitoring (DHT11-B)
+├─ Cooling Fan (Relay B1)
+├─ Dehumidifier (Relay B2)
+├─ Water Pump (Relay B3)
+└─ Grow Lights (Relay B4)
+```
+
+## Connection Details
+
+**DHT11 Sensors:**
+- VCC → Arduino 5V
+- GND → Arduino GND  
+- DATA → Arduino Digital Pins (D2, D3)
+
+**Relay Modules:**
+- VCC → Arduino 5V
+- GND → Arduino GND
+- IN1-IN4 → Arduino Digital Pins (D4-D11)
+
+**Power Supply:**
+- 12V input for loads
+- 5V regulated output for Arduino and control circuits
+- Common ground for all components
+
+**Safety Considerations:**
+- Use proper fusing for all AC loads
+- Ensure proper ventilation for power supplies
+- Use optically isolated relays for AC switching
+- Follow local electrical codes for AC wiring
