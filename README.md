@@ -1,7 +1,6 @@
 # Dual Compartment Micro Farm Automation System
 
 [![Arduino](https://img.shields.io/badge/Arduino-Compatible-blue.svg)](https://www.arduino.cc/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/Version-1.0-orange.svg)]()
 
 An intelligent Arduino-based automation system for controlling two separate micro farm compartments with independent environmental monitoring and control.
