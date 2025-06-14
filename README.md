@@ -18,7 +18,7 @@ An intelligent Arduino-based automation system for controlling two separate micr
 - [Pin Mapping](#-pin-mapping)
 - [Troubleshooting](#-troubleshooting)
 - [Contributing](#-contributing)
-- [License](#-license)
+
 
 ## Features
 
